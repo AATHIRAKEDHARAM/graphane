@@ -4437,3 +4437,48 @@
 
 }));
 //# sourceMappingURL=bootstrap.js.map
+
+function validateSize(input) {
+  const fileSize = input.files[0].size / 1024 / 1024; // in MiB
+  if (fileSize > 2) {
+      alert('File size exceeds 2 MiB');
+       $(file).val(''); //for clearing with Jquery
+  } else {
+      // Proceed further
+  }
+}
+function validate() {
+  var password = document.getElementById("password");
+  var password_err = document.getElementById("password_err")
+  var password_regex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/
+  var status = 1
+
+  if (password == "") {
+      document.getElementById("password_err").innerHTML = "Enter a password";
+      document.getElementById("password_err").style.color = "red";
+      document.getElementById("password").style.borderColor = " solid red";
+      status = 0;
+
+  } else if (!password.value.match(password_regex)) {
+      document.getElementById("password_err").innerHTML = "*Password atleast contain 8 characters including numbers, symbols, upper and lower characters";
+      document.getElementById("password_err").style.color = "red";
+      document.getElementById("password").style.borderColor = "solid red";
+      status = 0;
+
+
+  } else {
+      document.getElementById("password_err").innerHTML = "";
+      document.getElementById("password").style.borderColor = "solid green";
+      status = 1;
+  }
+
+  if (status == 0) {
+      return false;
+  }
+}
+
+
+
+
+
+
